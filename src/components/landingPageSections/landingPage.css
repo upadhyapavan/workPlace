@@ -1,0 +1,118 @@
+.right-job-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.right-job-container > h1 {
+  font-size: clamp(15px, 4.8vw, 30px);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.right-job-container > h1 {
+  font-size: clamp(30px, 4.8vw, 70px);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.right-job-container > h1 > span {
+  color: #4540db;
+}
+
+.right-job-container > h2 {
+  font-size: clamp(15px, 2vw, 30px);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.onePlatformContainer > h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(25px, 3.4vw, 50px);
+  max-width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.onePlatformContainer > h1 > span {
+  color: #4540db;
+}
+
+.solutionCard-container {
+  /* width: 318px; */
+  height: 148px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.solutionCard-container:hover {
+  background: #4540db;
+  color: #ffffff !important;
+}
+
+.solutionCard-title :first-child {
+  font-style: normal;
+  color: inherit;
+  font-weight: 400;
+  font-size: clamp(15px, 1.7vw, 25px);
+  line-height: clamp(15px, 1.8vw, 29px);
+  color: #000000;
+}
+
+.solutionCard-title :first-child:hover {
+  color: #ffffff;
+}
+
+.solutionCard-title :last-child {
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(10px, 1.2vw, 18px);
+  line-height: clamp(10px, 1.2vw, 18px);
+  color: #000000;
+}
+
+.featureJobs-container > h1 {
+  font-weight: 500;
+  font-size: clamp(25px, 3.4vw, 50px);
+  max-width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  /* line-height: 59px; */
+  text-align: center;
+  color: #000000;
+}
+
+.JobCard-container {
+  /* width: 268px; */
+  height: 308px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.JobCard-container-section2{
+  
+}
+
+/* 
+  clamp(minFontSize, ratio, maxFontSize)
+  formula to calculate the vw ratio
+  (max-size/design width) * 100
+  (70/1440)*100 */

@@ -22,12 +22,12 @@ import EmployerConversation from "../components/pages/employer/EmployerConversat
 
 function Nav() {
   const ProtectedCandidatePages = () => {
-    if ("a" === "b") {
+    if (true) {
       return <Outlet />;
     } else return <Navigate to="/candidate/auth" />;
   };
   const ProtectedEmployerPages = () => {
-    if ("a" === "b") {
+    if (true) {
       return <Outlet />;
     } else return <Navigate to="/employer/auth" />;
   };
