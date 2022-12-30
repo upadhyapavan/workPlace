@@ -9,6 +9,7 @@ import iconFinMgmt from "../../assets/fm.svg";
 import iconGovJobs from "../../assets/govt_jobs.svg";
 import iconHRD from "../../assets/hr&d.svg";
 import iconPM from "../../assets/project_management.svg";
+import iconBC from "../../assets/business_consulting.svg";
 
 const dataList = [
   {
@@ -39,7 +40,7 @@ const dataList = [
   {
     title: "Business & Consulting",
     description: "237 Jobs Available",
-    location: iconMarketing,
+    location: iconBC,
   },
   {
     title: "Customer Support Care",

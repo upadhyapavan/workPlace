@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import JobCard from "../common/JobCard";
+import "./landingPage.css";
 
 function FeatureJobs() {
   return (
@@ -17,9 +18,10 @@ function FeatureJobs() {
         }}
       >
         {[...Array(8)].map((e, i) => (
-          <JobCard key={i}/>
+          <JobCard key={i} />
         ))}
       </Grid>
+      <button>Find More Jobs</button>
     </div>
   );
 }

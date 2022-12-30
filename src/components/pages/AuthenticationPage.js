@@ -19,6 +19,7 @@ function AuthenticationPage({ type }) {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
+        localStorage.setItem("user", JSON.stringify(user));
         if (type === "candidate") {
           // user exists
           //? user exists as candidate

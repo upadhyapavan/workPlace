@@ -6,11 +6,11 @@ import companyLogo from "../../assets/company_logo.svg"
 function JobCard() {
   return (
     <Grid item xs={12} sm={6} md={3}>
-      <div className="JobCard-container">
+      <div className="outer">
         <div className="jobCard">
           <div className="company">
             <div className="image">
-              <img src={companyLogo} />
+              <img alt="company logo" src={companyLogo} />
             </div>
             <div className="name">
               <h2>Microsoft</h2>
