@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { Button, Grid, TextField } from "@mui/material";
 import "./employerOnboarding.css";
 import { db, storage } from "../../../../firebaseConfig";
+import { Notification } from "../../../../utils/Notification";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 import {
   getStorage,
   ref,
@@ -13,6 +15,8 @@ import {
 
 function EmployerOnboarding() {
   const [uploadLoading, setUploadLoading] = useState(0);
+  let inputRef = React.createRef();
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     companyName: "",
     companyEmail: "",
@@ -28,7 +32,7 @@ function EmployerOnboarding() {
 
   const submit = async (e) => {
     e.preventDefault();
-    console.log(values);
+    // console.log(values);
     const user = JSON.parse(localStorage.getItem("user"));
     const uid = user.uid;
 
@@ -43,16 +47,17 @@ function EmployerOnboarding() {
         ...values,
         type: "employer",
       });
-      alert("Profile created successfully");
+      Notification({ message: "Profile created successfully" });
+      navigate("/employer/profile");
     } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
+      // console.log(error);
+      Notification({ message: "Something went wrong" });
     }
   };
 
   const uploadLogo = (e) => {
-    let file = e.target.file[0];
-    console.log(file);
+    let file = e.target.files[0];
+    // console.log(file);
 
     const storageRef = ref(storage, "company-logo/" + file.name);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -60,17 +65,18 @@ function EmployerOnboarding() {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
         setUploadLoading(progress);
       },
       (error) => {
-        alert("Something went wrong");
+        Notification({ message: "Something went wrong" });
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setValues({ ...values, logo: downloadURL });
-          alert("File uploaded successfully");
+          Notification({ message: "File uploaded successfully" });
         });
       }
     );
@@ -185,13 +191,27 @@ function EmployerOnboarding() {
         </Grid>
         <Grid item xs={12}>
           <label className="field-label">Company Logo</label>
-          <TextField
-            size="small"
-            fullWidth
-            type="file"
-            value={values.logo}
-            onChange={(e) => uploadLogo(e)}
-          />
+          {uploadLoading > 0 && uploadLoading < 100 ? (
+            <div>Loading ... {uploadLoading}% completed</div>
+          ) : (
+            <>
+              <input
+                accept="image/*"
+                style={{ display: "none" }}
+                type={"file"}
+                ref={inputRef}
+                onChange={(e) => uploadLogo(e)}
+              />
+              <div className="upload-btn-container">
+                <Button onClick={() => inputRef.current.click()}>
+                  Upload logo
+                </Button>
+                {values.logo && (
+                  <img alt="company logo" src={values.logo} width="200px" />
+                )}
+              </div>
+            </>
+          )}
         </Grid>
         <Grid item xs={12}>
           <div className="btn-container">

@@ -19,6 +19,7 @@ import EmployerJobs from "../components/pages/employer/EmployerJobs";
 import EmployerOnboarding from "../components/pages/employer/EmployerOnboarding";
 import EmployerProfile from "../components/pages/employer/EmployerProfile";
 import EmployerConversation from "../components/pages/employer/EmployerConversation";
+import EmployerHoc from "../HOC/EmployerHoc";
 
 function Nav() {
   const ProtectedCandidatePages = () => {
@@ -39,7 +40,6 @@ function Nav() {
           path="/candidate/auth"
           element={<AuthenticationPage type="candidate" />}
         />
-        ;
         <Route element={<ProtectedCandidatePages />}>
           <Route
             path="/candidate/onboarding"
@@ -60,8 +60,10 @@ function Nav() {
           path="/employer/auth"
           element={<AuthenticationPage type="employer" />}
         />
-        ;
-        <Route element={<ProtectedEmployerPages />}>
+      </Routes>
+      {/* <Route element={<ProtectedEmployerPages />}> */}
+      <EmployerHoc>
+        <Routes>
           <Route path="/employer/onboarding" element={<EmployerOnboarding />} />
           <Route path="/employer/profile" element={<EmployerProfile />} />
           <Route path="/employer/jobs" element={<EmployerJobs />} />
@@ -70,8 +72,9 @@ function Nav() {
             path="/employer/conversations"
             element={<EmployerConversation />}
           />
-        </Route>
-      </Routes>
+        </Routes>
+      </EmployerHoc>
+      {/* </Route> */}
     </Router>
   );
 }

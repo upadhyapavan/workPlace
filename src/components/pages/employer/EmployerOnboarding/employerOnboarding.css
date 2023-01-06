@@ -27,6 +27,13 @@
   font-size: clamp(15px, 1.5vw, 25px);
 }
 
+.upload-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .btn-container {
     position: sticky;
