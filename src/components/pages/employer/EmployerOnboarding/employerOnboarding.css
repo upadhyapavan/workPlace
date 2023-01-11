@@ -23,6 +23,7 @@
   background-color: #7f31d2;
   border-radius: 8px;
   color: #ffffff;
+  padding: 10px 20px;
   text-transform: none;
   font-size: clamp(15px, 1.5vw, 25px);
 }

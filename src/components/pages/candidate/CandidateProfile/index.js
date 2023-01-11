@@ -1,7 +1,7 @@
 import { Label } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { Button, Grid, TextField } from "@mui/material";
-import "./employerProfile.css";
+import "./candidateProfile.css";
 import { db, storage } from "../../../../firebaseConfig";
 import { Notification } from "../../../../utils/Notification";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -14,7 +14,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
-function EmployerProfile() {
+function CandidateProfile() {
   const [disableFields, setDisableFields] = useState(true);
   const [loading, setLoading] = useState(false);
   const [uploadLoading, setUploadLoading] = useState(0);
@@ -292,4 +292,4 @@ function EmployerProfile() {
   );
 }
 
-export default EmployerProfile;
+export default CandidateProfile;
