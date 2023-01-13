@@ -282,9 +282,6 @@ function EmployerProfile() {
                 }
               />
             </Grid>
-            <Grid item xs={12}>
-              <label className="field-label">Company Logo</label>
-            </Grid>
           </Grid>
         </form>
       )}
